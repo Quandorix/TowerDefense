@@ -1,0 +1,161 @@
+body { 
+    margin: 0; 
+    font-family: 'Courier New', monospace; 
+    background: #1a1a1a; 
+    overflow: hidden; 
+}
+#gameContainer { 
+    position: relative; 
+    width: 100vw; 
+    height: 100vh; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 0;
+}
+#gameCanvas { 
+    border: 2px solid #4a4a4a; 
+    box-shadow: 0 0 15px rgba(0, 150, 0, 0.5); 
+    max-width: 100%; 
+    max-height: 100%; 
+}
+#ui { 
+    position: absolute; 
+    background: rgba(0, 20, 0, 0.9); 
+    color: #b4e4b4; 
+    text-shadow: 0 0 3px #006400; 
+    padding: 5px; 
+    border-radius: 5px; 
+    z-index: 1000;
+}
+#shop { 
+    background: rgba(0, 20, 0, 0.9); 
+    color: #b4e4b4; 
+    padding: 10px; 
+    border-radius: 5px; 
+    border: 1px solid #006400; 
+    box-shadow: 0 0 10px rgba(0, 100, 0, 0.3); 
+    z-index: 1000;
+    overflow-y: auto;
+}
+#shopModal { 
+    display: none; 
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    background: rgba(0, 20, 0, 0.95); 
+    color: #b4e4b4; 
+    padding: 15px; 
+    border-radius: 8px; 
+    border: 1px solid #006400; 
+    box-shadow: 0 0 10px rgba(0, 100, 0, 0.3); 
+    z-index: 2000; 
+    max-width: 90%; 
+    max-height: 70vh; 
+    overflow-y: auto;
+}
+#shopButton { 
+    position: absolute; 
+    bottom: 20px; 
+    right: 20px; 
+    background: #1a3c1a; 
+    color: #b4e4b4; 
+    border: 1px solid #006400; 
+    padding: 10px; 
+    border-radius: 5px; 
+    z-index: 1000; 
+    transition: all 0.3s; 
+    display: none;
+}
+#shopButton:hover { 
+    background: #006400; 
+    color: #fff; 
+    box-shadow: 0 0 8px #006400; 
+}
+.btn-custom { 
+    margin: 5px 0; 
+    background: #1a3c1a; 
+    color: #b4e4b4; 
+    border: 1px solid #006400; 
+    transition: all 0.3s; 
+    width: 100%; 
+}
+.btn-custom:hover { 
+    background: #006400; 
+    color: #fff; 
+    box-shadow: 0 0 8px #006400; 
+}
+#joystick { 
+    position: fixed; 
+    bottom: 20px; 
+    left: 20px; 
+    width: 120px; 
+    height: 120px; 
+    background: radial-gradient(circle, rgba(0, 100, 0, 0.3), rgba(0, 0, 0, 0.5)); 
+    border-radius: 50%; 
+    z-index: 1000; 
+    display: none;
+}
+#joystickKnob { 
+    position: absolute; 
+    width: 50px; 
+    height: 50px; 
+    background: radial-gradient(circle, #006400, #004d00); 
+    border-radius: 50%; 
+    box-shadow: 0 0 10px #006400; 
+}
+#minimap { 
+    position: absolute; 
+    background: rgba(0, 20, 0, 0.8); 
+    border: 2px solid #006400; 
+    border-radius: 5px; 
+    z-index: 1000;
+}
+
+@media (min-width: 769px) {
+    #ui { 
+        left: 10px; 
+        top: 10px; 
+        width: 200px; 
+        height: calc(100vh - 20px); 
+        font-size: 1rem;
+    }
+    #shop { 
+        position: absolute; 
+        right: 10px; 
+        top: 10px; 
+        width: 200px; 
+        height: calc(100vh - 20px); 
+    }
+    #minimap { 
+        top: 10px; 
+        right: 220px; 
+        width: 150px; 
+        height: 150px; 
+    }
+    #gameCanvas { 
+        max-width: calc(100vw - 440px); 
+    }
+}
+
+@media (max-width: 768px) {
+    #ui { 
+        top: 10px; 
+        left: 10px; 
+        right: 10px; 
+        font-size: 0.9rem; 
+    }
+    #shop { display: none; }
+    #shopButton { display: block; }
+    #joystick { display: block; }
+    #minimap { 
+        top: 60px; 
+        right: 10px; 
+        width: 100px; 
+        height: 100px; 
+    }
+    .btn-custom { padding: 0.3rem 0.5rem; font-size: 0.8rem; }
+    #gameCanvas { border-width: 1px; }
+}
+.effect { position: absolute; pointer-events: none; }
